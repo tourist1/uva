@@ -70,18 +70,6 @@ double divideAndConquer(point *data, int l, int r, double &tmp) {
     return tmp;
 }
  
-void swap(point &a, point &b) {
-    point temp = a;
-    a = b;
-    b = temp;
-}
- 
-void swap(int &a, int &b) {
-    int temp = a;
-    a = b;
-    b = temp;
-}
- 
 int main() {
     for(int n; scanf("%d", &n) && n; ) {
       point *ps = (point *)malloc(sizeof(point)*n);
@@ -95,11 +83,6 @@ int main() {
       sort(ps, ps+n, cmp);
       double distance = DBL_MAX;
       double result = divideAndConquer(ps, 0, n-1, distance);
-      for(pairs &i : sol) {
-          if(i.a.index - i.b.index > 0) {
-              swap(i.a.index, i.b.index);
-          }
-      }
       sort(sol.begin(), sol.end(), cmp_pair);
       if(result >= 10000) {
         printf("INFINITY\n");
