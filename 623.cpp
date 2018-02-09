@@ -10,10 +10,10 @@ void mul(int a) {
 	for(int i = 0; i < len; ++i) {
 		rem = (_t[i]*a + carry) % 10;
 		carry = (_t[i]*a + carry) / 10;
-		table[a].emplace_back(rem);
+		_t1.emplace_back(rem);
 	}
 	while(carry) {
-		table[a].emplace_back(carry%10);
+		_t1.emplace_back(carry%10);
 		carry /= 10;
 	}
 }
